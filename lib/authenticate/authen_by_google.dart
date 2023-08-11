@@ -1,6 +1,6 @@
 import 'package:google_sign_in/google_sign_in.dart';
 
-import 'authen_mixin.dart';
+import '_mixin.dart';
 
 class AuthenticateByGoogle with AuthMixin {
   AuthenticateByGoogle._();

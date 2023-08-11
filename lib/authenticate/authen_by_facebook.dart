@@ -1,4 +1,4 @@
-import 'package:core_function/authenticate/authen_mixin.dart';
+import 'package:core_function/authenticate/_mixin.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 class AuthenticateByFacebook with AuthMixin {

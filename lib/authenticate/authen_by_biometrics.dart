@@ -1,4 +1,4 @@
-import 'package:core_function/authenticate/authen_mixin.dart';
+import 'package:core_function/authenticate/_mixin.dart';
 import 'package:local_auth/local_auth.dart';
 
 class AuthenticateByBiometrics with AuthMixin{

@@ -1,6 +1,6 @@
 import 'package:auth0_flutter/auth0_flutter.dart';
 import 'package:auth0_flutter/auth0_flutter_web.dart';
-import 'package:core_function/authenticate/authen_mixin.dart';
+import 'package:core_function/authenticate/_mixin.dart';
 import 'package:core_function/utils/platform_details.dart';
 
 class AuthenticateByAuth0 with AuthMixin {
