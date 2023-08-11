@@ -1,6 +1,7 @@
+import 'package:core_function/authenticate/authen_mixin.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
-class AuthenticateByFacebook {
+class AuthenticateByFacebook with AuthMixin {
   AuthenticateByFacebook._();
 
   static final AuthenticateByFacebook _instance = AuthenticateByFacebook._();
@@ -9,7 +10,17 @@ class AuthenticateByFacebook {
 
   final FacebookAuth _facebookAuth = FacebookAuth.instance;
 
+  @override
   Future<void> logOut() => _facebookAuth.logOut();
+
+  @override
+  Future<LoginResult> authenticate({
+    List<String> permissions = const ['email', 'public_profile'],
+    LoginBehavior loginBehavior = LoginBehavior.nativeWithFallback,
+  }) async {
+    return _facebookAuth.login(
+        permissions: permissions, loginBehavior: loginBehavior);
+  }
 
   Future<void> webAndDesktopInitialize({
     required String appId,
@@ -23,13 +34,5 @@ class AuthenticateByFacebook {
       xfbml: xfbml,
       version: version,
     );
-  }
-
-  Future<LoginResult> authenticate({
-    List<String> permissions = const ['email', 'public_profile'],
-    LoginBehavior loginBehavior = LoginBehavior.nativeWithFallback,
-  }) async {
-    return _facebookAuth.login(
-        permissions: permissions, loginBehavior: loginBehavior);
   }
 }

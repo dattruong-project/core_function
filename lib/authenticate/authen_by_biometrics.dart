@@ -1,6 +1,7 @@
+import 'package:core_function/authenticate/authen_mixin.dart';
 import 'package:local_auth/local_auth.dart';
 
-class AuthenticateByBiometrics {
+class AuthenticateByBiometrics with AuthMixin{
   AuthenticateByBiometrics._();
 
   static final AuthenticateByBiometrics _instance = AuthenticateByBiometrics
@@ -10,19 +11,21 @@ class AuthenticateByBiometrics {
 
   final LocalAuthentication _biometricsAuth = LocalAuthentication();
 
-  Future<bool> logOut() => _biometricsAuth.stopAuthentication();
-
-  Future<bool> isDeviceSupported() => _biometricsAuth.isDeviceSupported();
-
   Future<List<BiometricType>> getAvailableBiometrics() =>
       _biometricsAuth.getAvailableBiometrics();
 
   Future<bool> get canCheckBiometric => _biometricsAuth.canCheckBiometrics;
 
-  Future<bool> authenticate({required String localizedReason,
+  @override
+  Future<bool> logOut() => _biometricsAuth.stopAuthentication();
+
+  @override
+  Future<bool> authenticateWithParams(dynamic params,{
     AuthenticationOptions options = const AuthenticationOptions()}) async {
     return _biometricsAuth.authenticate(
-        localizedReason: localizedReason, options: options);
+        localizedReason: params as String, options: options);
   }
+
+  Future<bool> isDeviceSupported() => _biometricsAuth.isDeviceSupported();
 
 }

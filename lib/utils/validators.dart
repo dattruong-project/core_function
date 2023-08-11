@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
 
-class CustomValidators {
- static String? validatorPhone() {
-
- }
-}
-
 class FormBuilderValidators {
   static FormFieldValidator<T> compose<T>(
       List<FormFieldValidator<T>> validators) {

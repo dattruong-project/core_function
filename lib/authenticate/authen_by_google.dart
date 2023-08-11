@@ -1,6 +1,8 @@
 import 'package:google_sign_in/google_sign_in.dart';
 
-class AuthenticateByGoogle {
+import 'authen_mixin.dart';
+
+class AuthenticateByGoogle with AuthMixin {
   AuthenticateByGoogle._();
 
   static final AuthenticateByGoogle _instance = AuthenticateByGoogle._();
@@ -9,9 +11,12 @@ class AuthenticateByGoogle {
 
   final GoogleSignIn _googleAuth = GoogleSignIn();
 
+  @override
   Future<void> logOut() => _googleAuth.signOut();
 
+  @override
   Future<GoogleSignInAccount?> authenticate() {
     return _googleAuth.signIn();
   }
 }
+
