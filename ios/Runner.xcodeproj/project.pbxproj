@@ -10,6 +10,11 @@
 		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
 		331C808B294A63AB00263BE5 /* RunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331C807B294A618700263BE5 /* RunnerTests.swift */; };
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
+		69149F722A8DBD3C000752C1 /* zpdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69149F712A8DBD3C000752C1 /* zpdk.framework */; };
+		69149F782A8DCB64000752C1 /* PaymentByZl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69149F772A8DCB64000752C1 /* PaymentByZl.swift */; };
+		69149F7A2A8DCB71000752C1 /* HttpProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69149F792A8DCB71000752C1 /* HttpProvider.swift */; };
+		6962B3092A8CD1330095B0C1 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6962B3082A8CD1330095B0C1 /* String.swift */; };
+		6962B30B2A8CD17F0095B0C1 /* CryptoAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6962B30A2A8CD17F0095B0C1 /* CryptoAlgorithm.swift */; };
 		6963E9E19CC6DAA01F69CF06 /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B70F5D454E9342F4603048F /* Pods_Runner.framework */; };
 		74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
 		78F22DD8A8AD1D21EABE1C09 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EE62F64B0952B09057962799 /* GoogleService-Info.plist */; };
@@ -51,6 +56,11 @@
 		331C8081294A63A400263BE5 /* RunnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunnerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppFrameworkInfo.plist; path = Flutter/AppFrameworkInfo.plist; sourceTree = "<group>"; };
 		682174249DECE78528BE316E /* Pods-RunnerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.release.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.release.xcconfig"; sourceTree = "<group>"; };
+		69149F712A8DBD3C000752C1 /* zpdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = zpdk.framework; sourceTree = "<group>"; };
+		69149F772A8DCB64000752C1 /* PaymentByZl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentByZl.swift; sourceTree = "<group>"; };
+		69149F792A8DCB71000752C1 /* HttpProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpProvider.swift; sourceTree = "<group>"; };
+		6962B3082A8CD1330095B0C1 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		6962B30A2A8CD17F0095B0C1 /* CryptoAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAlgorithm.swift; sourceTree = "<group>"; };
 		74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Runner-Bridging-Header.h"; sourceTree = "<group>"; };
 		74858FAE1ED2DC5600515810 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7AFA3C8E1D35360C0083082E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = Flutter/Release.xcconfig; sourceTree = "<group>"; };
@@ -83,6 +93,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6963E9E19CC6DAA01F69CF06 /* Pods_Runner.framework in Frameworks */,
+				69149F722A8DBD3C000752C1 /* zpdk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +103,7 @@
 		008B8C67F3AE8E1246DBBE92 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				69149F712A8DBD3C000752C1 /* zpdk.framework */,
 				7B70F5D454E9342F4603048F /* Pods_Runner.framework */,
 				E264F06A5A1708E216E077C4 /* Pods_RunnerTests.framework */,
 			);
@@ -116,8 +128,42 @@
 				682174249DECE78528BE316E /* Pods-RunnerTests.release.xcconfig */,
 				B391F14BB0C54EE547D05EE4 /* Pods-RunnerTests.profile.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		69149F732A8DCAD7000752C1 /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				69149F762A8DCB21000752C1 /* Utils */,
+				69149F752A8DCB19000752C1 /* Helper */,
+				69149F742A8DCB0F000752C1 /* Api */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		69149F742A8DCB0F000752C1 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				69149F772A8DCB64000752C1 /* PaymentByZl.swift */,
+				69149F792A8DCB71000752C1 /* HttpProvider.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		69149F752A8DCB19000752C1 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				6962B3082A8CD1330095B0C1 /* String.swift */,
+				6962B30A2A8CD17F0095B0C1 /* CryptoAlgorithm.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		69149F762A8DCB21000752C1 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		9740EEB11CF90186004384FC /* Flutter */ = {
@@ -156,6 +202,7 @@
 		97C146F01CF9000F007C117D /* Runner */ = {
 			isa = PBXGroup;
 			children = (
+				69149F732A8DCAD7000752C1 /* Payment */,
 				97C146FA1CF9000F007C117D /* Main.storyboard */,
 				97C146FD1CF9000F007C117D /* Assets.xcassets */,
 				97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */,
@@ -347,7 +394,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" build";
+			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" build\n";
 		};
 		D69C8B8CCC8FA7A4348CD393 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -381,8 +428,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69149F7A2A8DCB71000752C1 /* HttpProvider.swift in Sources */,
+				6962B30B2A8CD17F0095B0C1 /* CryptoAlgorithm.swift in Sources */,
+				6962B3092A8CD1330095B0C1 /* String.swift in Sources */,
 				74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */,
 				1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */,
+				69149F782A8DCB64000752C1 /* PaymentByZl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +471,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -471,11 +523,17 @@
 			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 28L98322P9;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Runner/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -542,6 +600,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -597,6 +656,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -650,11 +710,17 @@
 			baseConfigurationReference = 9740EEB21CF90195004384FC /* Debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 28L98322P9;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Runner/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -673,11 +739,17 @@
 			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 28L98322P9;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Runner/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -45,10 +45,11 @@ android {
         applicationId "com.tma.core_function"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion flutter.minSdkVersion
+        minSdkVersion 21
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        manifestPlaceholders += [auth0Domain: "", auth0Scheme: ""]
     }
 
     buildTypes {
@@ -58,10 +59,15 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+
 }
 
 flutter {
     source '../..'
 }
 
-dependencies {}
+dependencies {
+    implementation("com.squareup.okhttp3:okhttp:4.6.0")
+    implementation("commons-codec:commons-codec:1.14")
+    implementation fileTree(dir: "libs", include: ["*.aar"])
+}
