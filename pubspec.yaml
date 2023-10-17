@@ -39,8 +39,15 @@ dependencies:
   isar_flutter_libs: ^3.1.0+1
   path_provider: ^2.1.0
   shared_preferences: ^2.2.0
+  crypto: ^3.0.3
+  encrypt: ^5.0.1
+  timezone: ^0.9.2
+  flutter_timezone: ^1.0.7
+  flutter_local_notifications: ^15.1.0+1
+  pointycastle: ^3.7.3
 
 dev_dependencies:
+
   flutter_test:
     sdk: flutter
 
@@ -50,23 +57,43 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+  test: ^1.24.0
+
+false_secrets:
+  - /test/*.pem
+
+#flutter:
+#  plugin:
+#    platforms:
+#      android:
+#        package: com.tma.core_function
+#        pluginClass: TMACorePlugin
+#flutter:
+#  plugin:
+#    platforms:
+#      android:
+#        package: com.tma.core_function
+#        pluginClass: TMACorePlugin
 
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter packages.
-flutter:
-
-  # The following line ensures that the Material Icons font is
-  # included with your application, so that you can use the icons in
-  # the material Icons class.
-  uses-material-design: true
+#flutter:
+#
+#  # The following line ensures that the Material Icons font is
+#  # included with your application, so that you can use the icons in
+#  # the material Icons class.
+#  uses-material-design: true
+#  plugin:
+#    platforms:
+#      android:
+#        package: com.tma.core_function
+#        pluginClass: TMACorePlugin
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

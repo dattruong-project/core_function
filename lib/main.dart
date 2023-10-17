@@ -1,5 +1,22 @@
+import 'dart:developer';
+import 'dart:async';
+import 'dart:io';
+import 'package:core_function/crypto/PBKDF2.dart';
+import 'package:core_function/crypto/aes_crypto.dart';
+import 'package:core_function/crypto/rsa.dart';
+import 'package:core_function/notification/local_notification.dart';
 import 'package:core_function/payment/payment_by_zalo.dart';
+import 'package:core_function/second_screen.dart';
+import 'package:encrypt/encrypt_io.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:flutter_timezone/flutter_timezone.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:pointycastle/asymmetric/api.dart';
+import 'package:timezone/standalone.dart';
+import 'package:timezone/data/latest.dart' as tz;
+import 'package:timezone/timezone.dart' as tz;
+import 'crypto/salt.dart';
 
 void main() {
   runApp(const MyApp());
@@ -59,8 +76,48 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
   void _incrementCounter() async{
-    await PaymentByZalo.instance.init("2554", "sandbox", "sdngKKJmqEMzvh5QQcdD2A9XBSKUNaYn");
-    await PaymentByZalo.instance.pay("20000");
+    tz.initializeTimeZones();
+    final String currentTimeZone = await FlutterTimezone.getLocalTimezone();
+    final location = tz.getLocation(currentTimeZone);
+    //Notification
+    // LocalNotification(
+    //   context: context,
+    //   payload: 'test',
+    //   pageRoute: MaterialPageRoute(
+    //     builder: (context) {
+    //       return MyHomePage(title: 'aaa');
+    //     },
+    //   ),
+    //   appIcon: 'mipmap/ic_launcher',
+    // ).show(title: "aaaa", message: "aaa");
+    // LocalNotification(
+    //   context: context,
+    //   payload: 'test',
+    //   pageRoute: MaterialPageRoute(
+    //     builder: (context) {
+    //       return MyHomePage(title: 'aaa');
+    //     },
+    //   ),
+    //   appIcon: 'mipmap/ic_launcher',
+    // ).scheduleNotification(title: "aaa", message: "bbb",
+    //     scheduleDate: TZDateTime.from(DateTime(2023,10,13,16,35,0), location));
+    //Payment
+    // await PaymentByZalo.instance.init("2554", "sandbox", "sdngKKJmqEMzvh5QQcdD2A9XBSKUNaYn");
+    // await PaymentByZalo.instance.pay("20000");
+    // Security
+    // String password = '12345678x@X';
+    // var salt = Salt.generateAsBase64String(12);
+    // var hash = PBKDF2.instance.generateBase64Key(password, salt, 1000, 16);
+    // final encrypt = AESCrypto.encrypt(hash, 'abc');
+    // final data = AESCrypto.decrypt(hash, encrypt);
+    // log("show Data By AES Method $data");
+    // final folder = await getApplicationDocumentsDirectory();
+    // final publicKey = await parseKeyFromFile<RSAPublicKey>('${folder.path}/public.pem');
+    // final privateKey = await parseKeyFromFile<RSAPrivateKey>('${folder.path}/private.pem');
+    // RSACrypto.instance.init(publicKey: publicKey, privateKey: privateKey);
+    // final en = RSACrypto.instance.encrypt("Hello");
+    // final result = RSACrypto.instance.decrypt(en);
+    // log("show Data By RSA Method $result");
   }
 
   @override

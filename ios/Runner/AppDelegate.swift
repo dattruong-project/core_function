@@ -25,7 +25,7 @@ import zpdk
             
                 if call.method == "zalo_pay" {
                     PaymentByZl.instance.payment()
-                   
+
                 }
                 else {
                     
